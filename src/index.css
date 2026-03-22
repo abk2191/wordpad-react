@@ -52,7 +52,7 @@
 }
 
 .a-post {
-  height: 150px;
+  height: auto;
   width: 290px;
   border: 1px solid white;
   padding: 30px;

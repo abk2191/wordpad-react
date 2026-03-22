@@ -73,6 +73,7 @@ function App() {
         <div className="posts">
           {[...posts].reverse().map((post, index) => (
             <div className="a-post" key={index}>
+              <p>{posts.length - index}</p>
               <p>{post.sentence}</p>
               <p style={{ fontSize: "12px", color: "gray" }}>
                 {post.date} {post.time}
