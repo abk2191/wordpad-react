@@ -53,7 +53,7 @@ function App() {
     <>
       <div className="main-container">
         <div className="heading">
-          <h1>ScrathPad</h1>
+          <h1>ScratchPad 🗒</h1>
         </div>
         <div className="input-field">
           <textarea
