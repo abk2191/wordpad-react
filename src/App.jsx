@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [posts, setPosts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   function changeColor(id) {
     const updateColor = posts.map((post) =>
@@ -36,6 +37,14 @@ function App() {
     setInputValue(inputText);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const clearSearch = () => {
+    setSearchTerm("");
+  };
+
   function postContent() {
     if (inputValue.trim()) {
       const date = new Date();
@@ -66,6 +75,14 @@ function App() {
     }
   }
 
+  // Filter posts based on search term
+  const filteredPosts =
+    searchTerm.trim() === ""
+      ? posts
+      : posts.filter((post) =>
+          post.sentence.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
+
   return (
     <>
       <div className="main-container">
@@ -81,6 +98,28 @@ function App() {
             rows={4}
           />
         </div>
+
+        {/* Search Bar */}
+        <div className="search-container" style={{ marginTop: "10px" }}>
+          <input
+            className="search"
+            placeholder="Search posts..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            rows={1}
+          />
+          {searchTerm && (
+            <button
+              className="clear-search"
+              onClick={clearSearch}
+              onMouseEnter={(e) => (e.target.style.color = "#666")}
+              onMouseLeave={(e) => (e.target.style.color = "#999")}
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          )}
+        </div>
+
         <div className="postButton">
           <button className="post-button" onClick={postContent}>
             Post
@@ -88,25 +127,30 @@ function App() {
         </div>
 
         <div className="posts">
-          {[...posts].reverse().map((post, index) => (
+          {filteredPosts.length === 0 && searchTerm && (
+            <p style={{ textAlign: "center", color: "gray" }}>
+              No posts matching "{searchTerm}"
+            </p>
+          )}
+          {filteredPosts.length === 0 && !searchTerm && (
+            <p style={{ textAlign: "center", color: "gray" }}>
+              No posts yet. Write something!
+            </p>
+          )}
+          {[...filteredPosts].reverse().map((post, index) => (
             <div
               className="a-post"
               style={{ backgroundColor: post.color, color: post.textcolor }}
-              key={index}
+              key={post.id}
               onClick={() => changeColor(post.id)}
             >
-              <p>{posts.length - index}</p>
+              <p>{filteredPosts.length - index}</p>
               <p style={{ whiteSpace: "pre-wrap" }}>{post.sentence}</p>
               <p style={{ fontSize: "12px", color: post.textcolor }}>
                 {post.date} {post.time}
               </p>
             </div>
           ))}
-          {posts.length === 0 && (
-            <p style={{ textAlign: "center", color: "gray" }}>
-              No posts yet. Write something!
-            </p>
-          )}
         </div>
       </div>
     </>
