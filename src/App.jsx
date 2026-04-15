@@ -4,6 +4,20 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [posts, setPosts] = useState([]);
 
+  function changeColor(id) {
+    const updateColor = posts.map((post) =>
+      post.id === id
+        ? {
+            ...post,
+            color: post.color === "white" ? "greenyellow" : "white",
+            textcolor: post.textcolor === "gray" ? "white" : "gray",
+          }
+        : post,
+    );
+
+    setPosts(updateColor);
+  }
+
   // Load posts from localStorage when component mounts
   useEffect(() => {
     const storedPosts = localStorage.getItem("posts");
@@ -43,6 +57,9 @@ function App() {
           sentence: inputValue,
           time: time,
           date: dateStr,
+          color: "white",
+          textcolor: "gray",
+          id: Date.now(),
         },
       ]);
       setInputValue(""); // Clear the input after posting
@@ -72,10 +89,15 @@ function App() {
 
         <div className="posts">
           {[...posts].reverse().map((post, index) => (
-            <div className="a-post" key={index}>
+            <div
+              className="a-post"
+              style={{ backgroundColor: post.color, color: post.textcolor }}
+              key={index}
+              onClick={() => changeColor(post.id)}
+            >
               <p>{posts.length - index}</p>
               <p>{post.sentence}</p>
-              <p style={{ fontSize: "12px", color: "gray" }}>
+              <p style={{ fontSize: "12px", color: post.textcolor }}>
                 {post.date} {post.time}
               </p>
             </div>
