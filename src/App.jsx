@@ -9,7 +9,7 @@ function App() {
       post.id === id
         ? {
             ...post,
-            color: post.color === "white" ? "greenyellow" : "white",
+            color: post.color === "white" ? "rgb(40, 138, 40)" : "white",
             textcolor: post.textcolor === "gray" ? "white" : "gray",
           }
         : post,
@@ -96,7 +96,7 @@ function App() {
               onClick={() => changeColor(post.id)}
             >
               <p>{posts.length - index}</p>
-              <p>{post.sentence}</p>
+              <p style={{ whiteSpace: "pre-wrap" }}>{post.sentence}</p>
               <p style={{ fontSize: "12px", color: post.textcolor }}>
                 {post.date} {post.time}
               </p>
