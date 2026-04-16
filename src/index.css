@@ -76,6 +76,10 @@
   color: #515050;
 }
 
+.warning {
+  font-family: "Inter", sans-serif;
+}
+
 .search-container {
   display: flex;
   flex-direction: column;

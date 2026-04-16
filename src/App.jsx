@@ -133,7 +133,10 @@ function App() {
             </p>
           )}
           {filteredPosts.length === 0 && !searchTerm && (
-            <p style={{ textAlign: "center", color: "gray" }}>
+            <p
+              className="warning"
+              style={{ textAlign: "center", color: "gray" }}
+            >
               No posts yet. Write something!
             </p>
           )}
