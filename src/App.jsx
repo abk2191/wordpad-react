@@ -144,7 +144,7 @@ function App() {
               key={post.id}
               onClick={() => changeColor(post.id)}
             >
-              <p>{filteredPosts.length - index}</p>
+              <p>{posts.length - posts.findIndex((p) => p.id === post.id)}</p>
               <p style={{ whiteSpace: "pre-wrap" }}>{post.sentence}</p>
               <p style={{ fontSize: "12px", color: post.textcolor }}>
                 {post.date} {post.time}
