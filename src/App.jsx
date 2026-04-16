@@ -10,7 +10,7 @@ function App() {
       post.id === id
         ? {
             ...post,
-            color: post.color === "white" ? "rgb(117, 248, 159)" : "white",
+            color: post.color === "white" ? "rgb(207, 241, 218)" : "white",
             textcolor: post.textcolor === "gray" ? "white" : "gray",
           }
         : post,
