@@ -4,19 +4,26 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [backColor, setBackColor] = useState("whitesmoke");
+  const [accentColor, setAccentColor] = useState("false");
 
   function changeColor(id) {
     const updateColor = posts.map((post) =>
       post.id === id
         ? {
             ...post,
-            color: post.color === "white" ? "rgb(64, 244, 121)" : "white",
+            color: post.color === "white" ? "#000033" : "white",
             textcolor: post.textcolor === "gray" ? "white" : "gray",
           }
         : post,
     );
 
     setPosts(updateColor);
+  }
+
+  function changeColor2() {
+    setBackColor(backColor === "whitesmoke" ? "#1a1a1a" : "whitesmoke");
+    setAccentColor((prev) => !prev);
   }
 
   // Load posts from localStorage when component mounts
@@ -85,8 +92,15 @@ function App() {
 
   return (
     <>
-      <div className="main-container">
-        <div className="heading">
+      <div
+        className="main-container"
+        style={{ backgroundColor: backColor }}
+        onClick={() => changeColor2()}
+      >
+        <div
+          className="heading"
+          style={{ color: accentColor ? "#000033" : "white" }}
+        >
           <h1>ScrathPad</h1>
         </div>
         <div className="input-field">
@@ -96,6 +110,11 @@ function App() {
             value={inputValue}
             onChange={handleInputChange}
             rows={4}
+            style={{
+              border: accentColor ? "3px solid #000033" : "3px solid white",
+              backgroundColor: accentColor ? "white" : "#1a1a1a",
+              color: accentColor ? "gray" : "white",
+            }}
           />
         </div>
 
@@ -107,6 +126,11 @@ function App() {
             value={searchTerm}
             onChange={handleSearchChange}
             rows={1}
+            style={{
+              border: accentColor ? "3px solid #000033" : "3px solid white",
+              backgroundColor: accentColor ? "white" : "#1a1a1a",
+              color: accentColor ? "gray" : "white",
+            }}
           />
           {searchTerm && (
             <button
@@ -121,7 +145,15 @@ function App() {
         </div>
 
         <div className="postButton">
-          <button className="post-button" onClick={postContent}>
+          <button
+            className="post-button"
+            onClick={postContent}
+            style={{
+              border: accentColor ? "1px solid #000033" : "1px solid white",
+              backgroundColor: accentColor ? "white" : "#1a1a1a",
+              color: accentColor ? "gray" : "white",
+            }}
+          >
             Post
           </button>
         </div>
@@ -145,9 +177,12 @@ function App() {
               className="a-post"
               style={{ backgroundColor: post.color, color: post.textcolor }}
               key={post.id}
-              onClick={() => changeColor(post.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                changeColor(post.id);
+              }}
             >
-              <p>{posts.length - posts.findIndex((p) => p.id === post.id)}</p>
+              <p>{posts.findIndex((p) => p.id === post.id) + 1}</p>
               <p style={{ whiteSpace: "pre-wrap" }}>{post.sentence}</p>
               <p style={{ fontSize: "12px", color: post.textcolor }}>
                 {post.date} {post.time}
