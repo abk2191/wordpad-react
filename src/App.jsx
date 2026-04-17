@@ -105,7 +105,7 @@ function App() {
         </div>
         <div className="input-field">
           <textarea
-            className="field-input"
+            className={`field-input ${accentColor ? "light" : "dark"}`}
             onClick={(e) => e.stopPropagation()}
             placeholder="What's on your mind ?"
             value={inputValue}
@@ -122,7 +122,7 @@ function App() {
         {/* Search Bar */}
         <div className="search-container" style={{ marginTop: "10px" }}>
           <input
-            className="search"
+            className={`search ${accentColor ? "light" : "dark"}`}
             onClick={(e) => e.stopPropagation()}
             placeholder="Search posts..."
             value={searchTerm}

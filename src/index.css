@@ -25,6 +25,22 @@
   font-family: "Inter", sans-serif;
 }
 
+.field-input.light::placeholder {
+  color: gray;
+}
+
+.field-input.dark::placeholder {
+  color: white;
+}
+
+.search.light::placeholder {
+  color: gray;
+}
+
+.search.dark::placeholder {
+  color: white;
+}
+
 .search {
   outline: none;
   height: 4px;
