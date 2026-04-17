@@ -106,6 +106,7 @@ function App() {
         <div className="input-field">
           <textarea
             className="field-input"
+            onClick={(e) => e.stopPropagation()}
             placeholder="What's on your mind ?"
             value={inputValue}
             onChange={handleInputChange}
@@ -122,6 +123,7 @@ function App() {
         <div className="search-container" style={{ marginTop: "10px" }}>
           <input
             className="search"
+            onClick={(e) => e.stopPropagation()}
             placeholder="Search posts..."
             value={searchTerm}
             onChange={handleSearchChange}
@@ -135,6 +137,7 @@ function App() {
           {searchTerm && (
             <button
               className="clear-search"
+              style={{ color: accentColor ? "#000033" : "white" }}
               onClick={clearSearch}
               onMouseEnter={(e) => (e.target.style.color = "#666")}
               onMouseLeave={(e) => (e.target.style.color = "#999")}
@@ -147,7 +150,10 @@ function App() {
         <div className="postButton">
           <button
             className="post-button"
-            onClick={postContent}
+            onClick={(e) => {
+              e.stopPropagation();
+              postContent();
+            }}
             style={{
               border: accentColor ? "1px solid #000033" : "1px solid white",
               backgroundColor: accentColor ? "white" : "#1a1a1a",
