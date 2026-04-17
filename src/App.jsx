@@ -12,7 +12,7 @@ function App() {
       post.id === id
         ? {
             ...post,
-            color: post.color === "white" ? "#000033" : "white",
+            color: post.color === "white" ? "#2D0B3A" : "white",
             textcolor: post.textcolor === "gray" ? "white" : "gray",
           }
         : post,
