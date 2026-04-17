@@ -22,7 +22,7 @@ function App() {
   }
 
   function changeColor2() {
-    setBackColor(backColor === "whitesmoke" ? "#1a1a1a" : "whitesmoke");
+    setBackColor(backColor === "whitesmoke" ? "black" : "whitesmoke");
     setAccentColor((prev) => !prev);
   }
 
