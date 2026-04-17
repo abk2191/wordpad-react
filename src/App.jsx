@@ -94,7 +94,10 @@ function App() {
     <>
       <div
         className="main-container"
-        style={{ backgroundColor: backColor }}
+        style={{
+          backgroundColor: backColor,
+          transition: "background-color 0.8s ease",
+        }}
         onClick={() => changeColor2()}
       >
         <div
