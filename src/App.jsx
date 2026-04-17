@@ -138,7 +138,10 @@ function App() {
             <button
               className="clear-search"
               style={{ color: accentColor ? "#000033" : "white" }}
-              onClick={clearSearch}
+              onClick={(e) => {
+                e.stopPropagation();
+                clearSearch();
+              }}
               onMouseEnter={(e) => (e.target.style.color = "#666")}
               onMouseLeave={(e) => (e.target.style.color = "#999")}
             >
