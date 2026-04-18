@@ -8,6 +8,23 @@
 .edit-textarea:focus {
   outline: none !important;
   box-shadow: none !important;
+  border: none !important;
+}
+
+/* Add these new rules to remove outline completely */
+.edit-textarea {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.edit-textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .input-field {
@@ -55,7 +72,6 @@
 .edit-txt-btn {
   background: none;
   border: none;
-
   font-size: 10px;
   cursor: pointer;
 }
@@ -88,7 +104,6 @@
   height: 40px;
   width: 70px;
   background: none;
-
   cursor: pointer;
 }
 
