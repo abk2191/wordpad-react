@@ -1,3 +1,7 @@
+* {
+  -webkit-tap-highlight-color: #000033;
+}
+
 .heading {
   display: flex;
   align-items: center;
