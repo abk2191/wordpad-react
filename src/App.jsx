@@ -277,7 +277,9 @@ function App() {
               key={post.id}
               onClick={(e) => {
                 e.stopPropagation();
-                changeColor(post.id);
+                if (!isEditing) {
+                  changeColor(post.id);
+                }
               }}
             >
               <p>{posts.findIndex((p) => p.id === post.id) + 1}</p>
