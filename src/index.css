@@ -5,6 +5,56 @@
   text-align: center;
 }
 
+textarea:focus,
+textarea:focus-visible {
+  outline: 1px solid white;
+  box-shadow: none !important;
+}
+
+.edit-textarea:focus,
+.edit-textarea:focus-visible {
+  outline: 1px solid white;
+  box-shadow: none !important;
+  border: 1px solid white;
+}
+
+.edit-textarea:focus {
+  outline: 1px solid white;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Add these new rules to remove outline completely */
+.edit-textarea {
+  outline: 1px solid white;
+  box-shadow: none !important;
+}
+
+.a-post:focus,
+.a-post:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.a-post {
+  outline: none;
+}
+
+.a-post:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.edit-textarea:focus-visible {
+  outline: 1px solid white;
+  box-shadow: none !important;
+}
+
+textarea:focus {
+  outline: 1px solid white;
+  box-shadow: none !important;
+}
+
 .input-field {
   display: flex;
   align-items: center;
@@ -50,7 +100,6 @@
 .edit-txt-btn {
   background: none;
   border: none;
-
   font-size: 10px;
   cursor: pointer;
 }
@@ -83,7 +132,6 @@
   height: 40px;
   width: 70px;
   background: none;
-
   cursor: pointer;
 }
 

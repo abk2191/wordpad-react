@@ -277,7 +277,10 @@ function App() {
               key={post.id}
               onClick={(e) => {
                 e.stopPropagation();
-                changeColor(post.id);
+                if (!isEditing) {
+                  changeColor(post.id);
+                }
+                e.currentTarget.blur?.();
               }}
             >
               <p>{posts.findIndex((p) => p.id === post.id) + 1}</p>
@@ -293,13 +296,13 @@ function App() {
                     width: "100%",
                     padding: "8px",
                     fontSize: "16px",
-                    backgroundColor:
-                      post.color === "white" ? "#f0f0f0" : "#3a1a4a",
-                    color: post.textcolor,
-                    border: `2px solid ${accentColor ? "#000033" : "white"}`,
+                    backgroundColor: "white",
+                    color: "gray",
+                    // border: `2px solid ${accentColor ? "#000033" : "white"}`,
                     borderRadius: "4px",
                     fontFamily: "inherit",
                     resize: "vertical",
+                    outline: "none",
                   }}
                   rows={3}
                   autoFocus
