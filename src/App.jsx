@@ -295,13 +295,14 @@ function App() {
                     width: "100%",
                     padding: "8px",
                     fontSize: "16px",
-                    backgroundColor: "white",
-                    color: "gray",
-                    border: `2px solid ${accentColor ? "#000033" : "white"}`,
-                    borderRadius: "4px",
+                    backgroundColor: post.color,
+                    color: post.textcolor,
+                    //border: `2px solid ${accentColor ? "#000033" : "white"}`,
+                    //borderRadius: "4px",
                     fontFamily: "inherit",
                     resize: "vertical",
                     outline: "none",
+                    border: post.color,
                   }}
                   rows={3}
                   autoFocus

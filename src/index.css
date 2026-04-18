@@ -20,6 +20,7 @@
 .edit-textarea:focus-visible {
   outline: none !important;
   box-shadow: none !important;
+  border: none !important;
 }
 
 textarea:focus {
