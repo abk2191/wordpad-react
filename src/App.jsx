@@ -277,10 +277,7 @@ function App() {
               key={post.id}
               onClick={(e) => {
                 e.stopPropagation();
-                if (!isEditing) {
-                  changeColor(post.id);
-                }
-                e.currentTarget.blur?.();
+                changeColor(post.id);
               }}
             >
               <p>{posts.findIndex((p) => p.id === post.id) + 1}</p>
@@ -298,7 +295,7 @@ function App() {
                     fontSize: "16px",
                     backgroundColor: "white",
                     color: "gray",
-                    // border: `2px solid ${accentColor ? "#000033" : "white"}`,
+                    border: `2px solid ${accentColor ? "#000033" : "white"}`,
                     borderRadius: "4px",
                     fontFamily: "inherit",
                     resize: "vertical",
