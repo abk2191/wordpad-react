@@ -324,7 +324,7 @@ function App() {
                         style={{
                           marginRight: "5px",
                           background: "none",
-                          color: "gray",
+                          color: post.textcolor,
                           border: "none",
                           borderRadius: "4px",
                           padding: "4px 8px",
@@ -342,7 +342,7 @@ function App() {
                         style={{
                           marginRight: "5px",
                           background: "none",
-                          color: "gray",
+                          color: post.textcolor,
                           border: "none",
                           borderRadius: "4px",
                           padding: "4px 8px",
@@ -359,6 +359,7 @@ function App() {
                         startEditing(post.id, post.sentence);
                         e.stopPropagation();
                       }}
+                      style={{ color: post.textcolor }}
                     >
                       <i className="fa-solid fa-pencil"></i>
                     </button>
